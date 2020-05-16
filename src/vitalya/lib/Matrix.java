@@ -26,7 +26,7 @@ public class Matrix {
         return new Matrix(sum_matrix);
     }
 
-    static public Matrix diff(Matrix a, Matrix b) throws Exception {//сумма 2 матриц возвращает значение в другой объект(при этом создание новой матрицы)
+    static public Matrix diff(Matrix a, Matrix b) throws Exception {//разница 2 матриц возвращает значение в другой объект(при этом создание новой матрицы)
         double[][] sum_matrix = new double[a.getMatrix().length][a.getMatrix()[0].length];
 
         if(a.getMatrix().length != b.getMatrix().length || a.getMatrix()[0].length != b.getMatrix()[0].length) throw new Exception("Матрицы разные");
