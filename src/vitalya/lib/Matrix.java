@@ -6,41 +6,49 @@ public class Matrix {
     private int sizeX;
     private int sizeY;
 
-    public Matrix(double[][] a) throws Exception{ // создание матрицы через параметр
+    public Matrix(double[][] a) { // создание матрицы через параметр
 
         sizeY = a.length;
         sizeX = a[0].length;
 
         for(int i = 0; i<sizeY; i++){
-            if(a[i].length != sizeX) throw new Exception("Массив не должен быть c разным размером по Y");
+            if(a[i].length != sizeX);
         }
 
         matrix = a;
     }
 
-    static public Matrix sum(Matrix a, Matrix b) throws Exception {//сумма 2 матриц возвращает значение в другой объект(при этом создание новой матрицы)
+    public Matrix setRandMatrix(){
+        double[][] newRandomMatrix = new double[sizeY][sizeX];
+
+        for(int i = 0; i < sizeY; i++)
+            for( int k = 0; k <sizeX; k++)
+                newRandomMatrix[i][k] = Math.random();
+
+        return new Matrix(newRandomMatrix);
+    }
+
+    static public Matrix sum(Matrix a, Matrix b) {//сумма 2 матриц возвращает значение в другой объект(при этом создание новой матрицы)
          double[][] sum_matrix = new double[a.getMatrix().length][a.getMatrix()[0].length];
 
-        if(a.getMatrix().length != b.getMatrix().length || a.getMatrix()[0].length != b.getMatrix()[0].length) throw new Exception("Матрицы разные");
+        if(a.getMatrix().length != b.getMatrix().length || a.getMatrix()[0].length != b.getMatrix()[0].length);
         for(int i = 0; i < a.getMatrix().length; i++) for (int k = 0; k < a.getMatrix()[0].length; k++ ) sum_matrix[i][k] = a.getMatrix()[i][k] + b.getMatrix()[i][k];
         return new Matrix(sum_matrix);
     }
 
-    static public Matrix diff(Matrix a, Matrix b) throws Exception {//разница 2 матриц возвращает значение в другой объект(при этом создание новой матрицы)
+    static public Matrix diff(Matrix a, Matrix b)  {//разница 2 матриц возвращает значение в другой объект(при этом создание новой матрицы)
         double[][] sum_matrix = new double[a.getMatrix().length][a.getMatrix()[0].length];
 
-        if(a.getMatrix().length != b.getMatrix().length || a.getMatrix()[0].length != b.getMatrix()[0].length) throw new Exception("Матрицы разные");
+        if(a.getMatrix().length != b.getMatrix().length || a.getMatrix()[0].length != b.getMatrix()[0].length);
         for(int i = 0; i < a.getMatrix().length; i++) for (int k = 0; k < a.getMatrix()[0].length; k++ ) sum_matrix[i][k] = a.getMatrix()[i][k] - b.getMatrix()[i][k];
         return new Matrix(sum_matrix);
     }
 
-    static public Matrix mul(Matrix a, Matrix b) throws  Exception{
+    static public Matrix mul(Matrix a, Matrix b){
         double[][] mul = new double[a.getSizeY()][b.getSizeX()];
 
         double[][] a1 =a.matrix;
         double[][] b1 =b.matrix;
-
-        if(a.getSizeX() != b.getSizeY()) throw new Exception("Количество столбцов матрицы 1 не равно кол-ву строчек матрицы 2");
 
         for(int i = 0; i < b.getSizeX(); i++){
             for(int j = 0; j < a.getSizeX(); j++){
@@ -52,25 +60,25 @@ public class Matrix {
         return new Matrix(mul);
     }
 
-    public void sum(Matrix b) throws Exception {//сумма 2 матриц возвращает значение в другой объект(при этом создание новой матрицы)
+    public void sum(Matrix b) {//сумма 2 матриц возвращает значение в другой объект(при этом создание новой матрицы)
 
-        if(this.getMatrix().length != b.getMatrix().length || this.getMatrix()[0].length != b.getMatrix()[0].length) throw new Exception("Матрицы разные");
+        if(this.getMatrix().length != b.getMatrix().length || this.getMatrix()[0].length != b.getMatrix()[0].length);
         for(int i = 0; i < this.getMatrix().length; i++) for (int k = 0; k < this.getMatrix()[0].length; k++ ) this.matrix[i][k] += b.getMatrix()[i][k];
     }
 
-    public void diff(Matrix b) throws Exception {//сумма 2 матриц возвращает значение в другой объект(при этом создание новой матрицы)
+    public void diff(Matrix b){//сумма 2 матриц возвращает значение в другой объект(при этом создание новой матрицы)
 
-        if(this.getMatrix().length != b.getMatrix().length || this.getMatrix()[0].length != b.getMatrix()[0].length) throw new Exception("Матрицы разные");
+        if(this.getMatrix().length != b.getMatrix().length || this.getMatrix()[0].length != b.getMatrix()[0].length);
         for(int i = 0; i < this.getMatrix().length; i++) for (int k = 0; k < this.getMatrix()[0].length; k++ ) this.matrix[i][k] -= b.getMatrix()[i][k];
     }
 
-    public void mul(Matrix b) throws  Exception{
+    public void mul(Matrix b){
         double[][] newMatrix = new double[this.getSizeY()][b.getSizeX()];
 
         double[][] a1 =this.matrix;
         double[][] b1 =b.matrix;
 
-        if(this.getSizeX() != b.getSizeY()) throw new Exception("Количество столбцов матрицы 1 не равно кол-ву строчек матрицы 2");
+        if(this.getSizeX() != b.getSizeY())
 
         for(int i = 0; i < b.getSizeX(); i++) {
             for (int j = 0; j < this.getSizeX(); j++) {
