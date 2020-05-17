@@ -18,14 +18,12 @@ public class Matrix {
         matrix = a;
     }
 
-    public Matrix setRandMatrix(){
-        double[][] newRandomMatrix = new double[sizeY][sizeX];
+    public void setRandMatrix(){
 
         for(int i = 0; i < sizeY; i++)
             for( int k = 0; k <sizeX; k++)
-                newRandomMatrix[i][k] = Math.random();
+                matrix[i][k] = Math.random();
 
-        return new Matrix(newRandomMatrix);
     }
 
     static public Matrix sum(Matrix a, Matrix b) {//сумма 2 матриц возвращает значение в другой объект(при этом создание новой матрицы)
