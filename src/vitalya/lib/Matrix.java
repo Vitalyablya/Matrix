@@ -7,19 +7,12 @@ public class Matrix {
     private int sizeY;
 
     public Matrix(double[][] a) { // создание матрицы через параметр
-
         sizeY = a.length;
         sizeX = a[0].length;
-
-        for(int i = 0; i<sizeY; i++){
-            if(a[i].length != sizeX);
-        }
-
         matrix = a;
     }
 
     public void setRandMatrix(){
-
         for(int i = 0; i < sizeY; i++)
             for( int k = 0; k <sizeX; k++)
                 matrix[i][k] = Math.random();
